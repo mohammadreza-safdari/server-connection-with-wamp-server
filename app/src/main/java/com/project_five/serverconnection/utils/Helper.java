@@ -19,4 +19,19 @@ public class Helper {
         return stringBuilder.toString();
     }
 
+    public static String inputStreamToStringV2(InputStream inputStream){
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null){
+                stringBuilder.append(line);
+            }
+            reader.close();
+            return stringBuilder.toString();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

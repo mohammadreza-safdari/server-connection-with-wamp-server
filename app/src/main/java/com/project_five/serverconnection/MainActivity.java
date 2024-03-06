@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
             inputStream = manager.httpConnect();
             JsonParser jsonParser = new JsonParser();
             countries = jsonParser.jsonParser(inputStream);
-            //set Bitmaps for image view
+            /*
+                if we want download and set the bitmap of all photos at once
+                and then display them in getView :
                 try {
                     for (Country country : countries) {
                         URL url = new URL(photos_url + country.getName().replaceAll(" ", "_").toLowerCase() + ".jpg");
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+             */
             return inputStream;
         }
         //ui thread

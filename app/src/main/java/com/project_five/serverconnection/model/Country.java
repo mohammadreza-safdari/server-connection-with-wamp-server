@@ -7,6 +7,7 @@ public class Country {
     private String name;
     private String code;
     private int rank;
+    private int id;
     private Bitmap bitmap;
 
     public String getName() {
@@ -39,6 +40,14 @@ public class Country {
 
     public void setBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

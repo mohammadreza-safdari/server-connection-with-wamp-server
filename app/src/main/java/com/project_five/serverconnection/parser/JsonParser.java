@@ -1,6 +1,8 @@
 package com.project_five.serverconnection.parser;
 
 import android.content.Context;
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.project_five.serverconnection.R;
 import com.project_five.serverconnection.model.Country;
@@ -17,10 +19,12 @@ import java.util.List;
 public class JsonParser {
     List<Country> countries;
     public List<Country> jsonParser(InputStream json_inputStream){
-        String json_string = Helper.inputStreamToString(json_inputStream);
+//        String json_string = Helper.inputStreamToString(json_inputStream);
+        String json_string = Helper.inputStreamToStringV2(json_inputStream);
         return jsonParser(json_string);
     }
     public List<Country> jsonParser(String json_string){
+        Log.d("json_string", json_string + "nnn");
         countries = new ArrayList<Country>();
         try {
             JSONObject root_object = new JSONObject(json_string);
@@ -31,6 +35,7 @@ public class JsonParser {
                 country.setName(jsonObject.getString("name"));
                 country.setCode(jsonObject.getString("code"));
                 country.setRank(jsonObject.getInt("rank"));
+                country.setId(jsonObject.getInt("id"));
                 countries.add(country);
             }
         } catch (JSONException e) {
